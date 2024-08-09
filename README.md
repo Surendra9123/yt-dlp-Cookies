@@ -1,1 +1,3 @@
+for windows and must not headless:
+
 run `python cookies.py` and follow steps...
