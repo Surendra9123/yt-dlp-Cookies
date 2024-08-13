@@ -43,6 +43,10 @@ while True:
   
 print(f'Hello, Logged in to your account..!')
 
+while True:
+ user_input = input("Are you sure you are successfully logged in and video is currently in open chrome tab if not playing any video then cookies file may not be work [Completed] (Y/N)")
+ if user_input == "Y":
+   break
 
 while True:
  user_input = input("enter a name for your cookies file: ")
