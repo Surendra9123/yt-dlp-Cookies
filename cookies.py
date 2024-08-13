@@ -2,6 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
 
+package_name = 'selenium'
+
+os.system(f'pip install {package_name}')
+
 options = Options()
 
 prefs = {'exit_type': 'Normal'}
@@ -16,6 +20,7 @@ options.add_experimental_option("excludeSwitches", ['enable-automation'])
 
 
 driver = webdriver.Chrome(options=options)
+driver.get("https://accounts.google.com/signin")
 
 def save_cookies_to_netscape_file(cookies, output_file):
     with open(output_file, 'w') as f:
