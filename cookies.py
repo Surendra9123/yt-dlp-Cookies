@@ -4,7 +4,10 @@ import os
 
 package_name = 'selenium'
 
-os.system(f'pip install {package_name}')
+try:
+  os.system(f'pip install {package_name}')
+except Exception as e:
+  print(e)
 
 options = Options()
 
