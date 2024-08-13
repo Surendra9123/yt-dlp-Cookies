@@ -59,6 +59,11 @@ while True:
    output_file = f"{user_input}.txt"
    break
 
+if "youtube.com" in driver.current_url:
+  pass
+else:
+  print("The current website is not YouTube cookies file maybe not work...")
+
 cookies = driver.get_cookies()
 output_file = f"{os.getcwd()}/{output_file}"
 save_cookies_to_netscape_file(cookies, output_file)
