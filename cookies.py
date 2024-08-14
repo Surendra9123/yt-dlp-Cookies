@@ -1,13 +1,14 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import os
 
 package_name = 'selenium'
-
 try:
   os.system(f'pip install {package_name}')
 except Exception as e:
   print(e)
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 options = Options()
 
