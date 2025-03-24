@@ -1,19 +1,12 @@
 import os
 import time
-
-package_name = 'selenium'
-try:
-  os.system(f'pip install {package_name}')
-except Exception as e:
-  print(e)
-
-
+from colorama import Fore, Style
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
 
-options.binary_location = "/usr/bin/brave-browser" #Remove this if you are using the default browser...
+options.binary_location = "/usr/bin/brave-browser"
 
 options.add_argument(f"user-data-dir={os.getcwd()}/fixbrave")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
@@ -24,7 +17,7 @@ options.add_argument("--autoplay-policy=no-user-gesture-required")
 prefs = {'exit_type': 'Normal'}
 options.add_experimental_option("prefs", {'profile': prefs})
 options.add_experimental_option("excludeSwitches", ['enable-automation'])
-options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_argument("--disable-blink-features=AutomationControlled")  # Disable automation detection
 options.add_experimental_option("useAutomationExtension", False)
 
 options.add_argument("--disable-extensions")
@@ -58,21 +51,18 @@ def save_cookies_to_netscape_file(cookies, output_file):
             f.write(f"{cookie['name']}\t{cookie['value']}\n")
     return f"Cookies have been saved to {output_file}"
 
-while True:
- user_input = input("[First Login Gmail] enter a name for your cookies file: ")
- driver.get("https://youtu.be/watch?v=i-AIcwllkRU")
- for sec in range(10, 0, -1):
-   print(f"Wait {sec}...", end="\r")
-   time.sleep(1)
- if not user_input:
-   user_input = "cookies.txt"
- output_file = f"{user_input}.txt"
- break
 
-if "youtube.com" in driver.current_url:
-  pass
-else:
-  print("The current website is not YouTube cookies file maybe not work...")
+print(Fore.GREEN + "\n✅ Step 1: Go to the loaded browser page\n✅ Step 2: Log in to your Gmail account\n✅ Step 3: Return to the terminal\n" + Style.RESET_ALL)
+user_input = input(Fore.CYAN + "\n💾 Enter cookies file (without .txt extension): " + Style.RESET_ALL)
+print(f"\n⚠️ {Fore.RED}WARNING {Style.RESET_ALL}: Don't click anywhere in the browser until the countdown finishes!\n")
+driver.get("https://youtu.be/watch?v=i-AIcwllkRU")
+for sec in range(10, 0, -1):
+  print(f"Wait {sec}...", end="\r")
+  time.sleep(1)
+if not user_input:
+  user_input = "cookies"
+output_file = f"{user_input}.txt"
+
 
 cookies = driver.get_cookies()
 output_file = f"{os.getcwd()}/{output_file}"
