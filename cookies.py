@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 options = Options()
 
-options.binary_location = "/usr/bin/brave-browser"
+options.binary_location = "/usr/bin/brave-browser" #remove this if you using default browser 
 
 options.add_argument(f"user-data-dir={os.getcwd()}/fixbrave")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
@@ -24,7 +24,7 @@ options.add_argument("--autoplay-policy=no-user-gesture-required")
 prefs = {'exit_type': 'Normal'}
 options.add_experimental_option("prefs", {'profile': prefs})
 options.add_experimental_option("excludeSwitches", ['enable-automation'])
-options.add_argument("--disable-blink-features=AutomationControlled")  # Disable automation detection
+options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_experimental_option("useAutomationExtension", False)
 
 options.add_argument("--disable-extensions")
