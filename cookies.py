@@ -13,7 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 options = Options()
 
-options.binary_location = "/usr/bin/brave-browser" #remove this if you using default browser 
+options.binary_location = "/usr/bin/brave-browser" #Remove this if you are using the default browser...
 
 options.add_argument(f"user-data-dir={os.getcwd()}/fixbrave")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36")
